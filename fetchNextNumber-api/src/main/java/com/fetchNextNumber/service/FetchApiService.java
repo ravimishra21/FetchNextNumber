@@ -1,0 +1,38 @@
+package com.fetchNextNumber.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.fetchNextNumber.dao.FetchRepository;
+import com.fetchNextNumber.entities.Fetch;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class FetchApiService {
+
+	@Autowired
+	private FetchRepository fetchRepository;
+	
+//	get single fetch value by categoryCode id
+	public Fetch getFetchNumberByCategoryId(int categoryCodeId) {
+		Fetch fetch=null;
+//		book=list.stream().filter(e-> e.getId()==id).findFirst().get();
+		try {
+			fetch=this.fetchRepository.findById(categoryCodeId);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return fetch;
+	}
+	
+//	adding the book
+	public Fetch addCategoryCode(Fetch b) {
+		Fetch result=fetchRepository.save(b);
+		return result;
+	}
+	
+	
+	
+	
+	
+}

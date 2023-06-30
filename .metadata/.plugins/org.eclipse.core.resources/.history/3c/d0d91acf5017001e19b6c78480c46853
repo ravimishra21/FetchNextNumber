@@ -1,0 +1,5 @@
+package com.fetchNextNumber.dao;
+
+public class FetchRepository {
+
+}
